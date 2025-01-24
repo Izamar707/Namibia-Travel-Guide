@@ -4,85 +4,122 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Namibia Travel Guide</title>
-    <link rel="stylesheet" href="style.css">
-    <script defer src="app.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('namibia_background.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .header {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .tabs a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            border: 1px solid white;
+            border-radius: 5px;
+        }
+
+        .tabs a:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .big-five-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+
+        .big-five {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            gap: 10px;
+        }
+
+        .big-five .circle {
+            width: 80px;
+            height: 80px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .big-five .circle:hover {
+            background-color: rgba(255, 255, 255, 1);
+            transform: scale(1.1);
+            transition: 0.3s;
+        }
+
+        .info-section {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            margin: 20px;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to the Namibia Travel Guide</h1>
-        <nav>
-            <ul>
-                <li><a href="#accommodation">Accommodation</a></li>
-                <li><a href="#transport">Transport</a></li>
-                <li><a href="#dining">Dining</a></li>
-                <li><a href="#activities">Activities</a></li>
-                <li><a href="#emergency">Emergency</a></li>
-                <li><a href="#map">Map</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="header">
+        <h1>Welcome to Namibia</h1>
+        <p>Explore the wonders of Namibia and its magnificent wildlife.</p>
+    </div>
 
-    <main>
-        <section id="accommodation">
-            <h2>Accommodation</h2>
-            <p>Discover top hotels, B&Bs, and lodges in Namibia.</p>
-            <ul>
-                <li>Hotel Thule</li>
-                <li>Windhoek Country Club</li>
-                <li>Desert Quiver Camp</li>
-            </ul>
-        </section>
+    <div class="tabs">
+        <a href="#accommodation">Accommodation</a>
+        <a href="#transport">Transport</a>
+        <a href="#home-affairs">Home Affairs</a>
+        <a href="#about">About Namibia</a>
+        <a href="#big-five">Big Five</a>
+    </div>
 
-        <section id="transport">
-            <h2>Transport</h2>
-            <p>Find car rentals, flights, and public transport options.</p>
-            <ul>
-                <li>Car Rentals Namibia</li>
-                <li>Air Namibia</li>
-                <li>Intercape Bus Service</li>
-            </ul>
-        </section>
+    <div id="big-five" class="big-five-container">
+        <h2>The Big Five</h2>
+        <div class="big-five">
+            <div class="circle" id="elephant">Elephant</div>
+            <div class="circle"></div>
+            <div class="circle" id="rhino">Rhino</div>
+            <div class="circle" id="buffalo">Buffalo</div>
+            <div class="circle" id="lion">Lion</div>
+            <div class="circle" id="cheetah">Cheetah</div>
+        </div>
+    </div>
 
-        <section id="dining">
-            <h2>Dining</h2>
-            <p>Explore top restaurants and local cuisines.</p>
-            <ul>
-                <li>Joe's Beerhouse</li>
-                <li>The Stellenbosch Wine Bar</li>
-                <li>Sardinia Blue Olive</li>
-            </ul>
-        </section>
+    <div class="info-section">
+        <h2>Ministry of Home Affairs & Immigration</h2>
+        <p>Ensure your travel documents and visas are in order before visiting Namibia. Visit our official government website for the latest information on travel requirements.</p>
+    </div>
 
-        <section id="activities">
-            <h2>Activities</h2>
-            <p>Enjoy safaris, sandboarding, and cultural tours.</p>
-            <ul>
-                <li>Etosha National Park Safari</li>
-                <li>Dune Boarding at Swakopmund</li>
-                <li>Himba Cultural Tours</li>
-            </ul>
-        </section>
-
-        <section id="emergency">
-            <h2>Emergency Numbers</h2>
-            <p>Important contacts while in Namibia:</p>
-            <ul>
-                <li>Police: 10111</li>
-                <li>Ambulance: 112</li>
-                <li>Fire Services: 061-211111</li>
-                <li>Tourist Assistance: 081-1234567</li>
-            </ul>
-        </section>
-
-        <section id="map">
-            <h2>Interactive Map</h2>
-            <p>Use the map below to explore Namibia:</p>
-            <div id="map-container"></div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 Namibia Travel Guide. All rights reserved.</p>
-    </footer>
+    <script>
+        document.querySelectorAll('.circle').forEach(circle => {
+            circle.addEventListener('click', function() {
+                alert(`Learn more about the ${this.id.charAt(0).toUpperCase() + this.id.slice(1)}!`);
+            });
+        });
+    </script>
 </body>
 </html>
